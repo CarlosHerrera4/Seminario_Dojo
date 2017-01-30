@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"
+    ></script>
+    <!-- <script>
+      var dojoConfig = {
+        async: true
+      }
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script> -->
+
+    <script>
+      require([
+        "dojo/dom",
+        "dojo/domReady!"
+      ],function(dom){
+        var el = dom.byId("contenedor");
+        el.innerHTML = "Hola Mundo!"
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="contenedor"></div>
+  </body>
+  
+</html>
