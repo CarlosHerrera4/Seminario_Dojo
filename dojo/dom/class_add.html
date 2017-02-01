@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+	<style type="text/css">
+		.style1 {
+			background-color: #7c7c7c;
+			color: #ffbf00;
+			border: 1px solid #ffbf00;
+			padding: 20px;
+		}
+	</style>
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require(["dojo/dom-class", "dojo/dom", "dojo/on", "dojo/domReady!"],
+			function(domClass, dom, on){
+			  on(dom.byId("boton"), "click", function(){
+			    domClass.add("example", "style1");
+					dom.byId("example").innerHTML = "Ya lo ha añadido";
+			  });
+			});
+	</script>
+</head>
+<body class="claro">
+    <div id="example">Este nodo añadirá un estilo.</div>
+<button id="boton" type="button">Añade clase!</button>
+</body>
+</html>
