@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../../_static/js/dojo/../dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require(["dojo/_base/array", "dojo/dom", "dojo/dom-construct", "dojo/on", "dojo/domReady!"],
+			function(array, dom, domConst, on){
+			  var arr = [
+			    { surname: "Washington", name: "Paul" },
+			    { surname: "Gordon", name: "Amie" },
+			    { surname: "Meyer", name: "Sofie" },
+			    { surname: "Jaysons", name: "Josh" },
+			    { surname: "Washington", name: "George" },
+			    { surname: "Doormat", name: "Amber" },
+			    { surname: "Smith", name: "Susan" },
+			    { surname: "Hill", name: "Strawberry" },
+			    { surname: "Washington", name: "Dan" },
+			    { surname: "Dojo", name: "Master" }
+			  ];
+
+			  on(dom.byId("start"), "click", function(){
+					// array.filter(arraySinFiltro, callback, thisObject)
+			    var filteredArr = array.filter(arr, function(item){
+			      return item.surname == "Washington";
+			    });
+
+			    array.forEach(filteredArr, function(item, i){
+			      domConst.create("li", {innerHTML: i+1+". "+item.surname+", "+item.name}, "filtered-items");
+			    });
+
+			    array.forEach(arr, function(item, i){
+			      domConst.create("li", {innerHTML: i+1+". "+item.surname+", "+item.name}, "unFiltered-items");
+			    });
+			  });
+			});
+	</script>
+</head>
+
+<body class="claro">
+    <button id="start" type="button">Filter array</button>
+		<br/>
+		<div style="width: 300px; float: left;">
+		  Array filtrado<br />
+		  (sólo aparece las personas con apellido "Washington")
+		  <ul id="filtered-items">
+
+		  </ul>
+		</div>
+		<div style="width: 300px; float: left;">
+		  Array original<br />
+		  (aparece toda la gente)
+		  <ul id="unFiltered-items">
+
+		  </ul>
+		</div>
+</body>
+
+</html>
