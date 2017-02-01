@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+	<link rel="stylesheet" href="../../_static/js/dojo/../dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+		require(["dojo/_base/array", "dojo/dom", "dojo/dom-construct", "dojo/on", "dojo/domReady!"],
+		function(array, dom, domConst, on){
+
+		  var arrIndxEvery = [
+		    { month: "january", income: 2000 },
+		    { month: "february", income: 3200 },
+		    { month: "march", income: 2100 }
+		  ];
+
+		  on(dom.byId("refButton7"), "click", function(){
+		    if(array.every(arrIndxEvery , function(item){ return item.income >= 3000; })){
+		      result = "yes, all income >= 3000";
+		    }else{
+		      result = "no, not all income >= 3000";
+		    }
+		    domConst.place(
+		      "<p>The answer is: " + result + "</p>",
+		      "result7",
+		      "after"
+		    );
+		  });
+		});
+	</script>
+</head>
+<body class="claro">
+    <div>The content of our test array is
+			<code>[{ month: "january", income: 2000 }, { month: "february", income: 3200 }, { month: "march", income: 2100 }]</code>.</div>
+		<button id="refButton7" type="button">Is the client allowed to get the credit?</button>
+		<div id="result7"></div>
+</body>
+</html>
