@@ -17,7 +17,7 @@
 		    { name: "Luis", ventas: 2100 }
 		  ];
 
-		  on(dom.byId("refButton7"), "click", function(){
+		  on(dom.byId("boton"), "click", function(){
 				// array.every(Array_test, callback)
 		    if(array.every(arrIndxEvery , function(item){ return item.ventas >= 3000; })){
 		      result = "Todos realizaron mas de 3000 ventas";
@@ -26,7 +26,7 @@
 		    }
 		    domConst.place(
 		      "<p>" + result + "</p>",
-		      "result7",
+		      "resultado",
 		      "after"
 		    );
 		  });
@@ -36,7 +36,7 @@
 <body class="claro">
     <div>El contenido de nuestro array de prueba
 			<code>[{ name: "Juan", ventas: 2000 }, { name: "Gabriel", ventas: 3200 }, { name: "Luis", ventas: 2100 }]</code>.</div>
-		<button id="refButton7" type="button">¿Todos han realizado más de 3000 ventas?</button>
-		<div id="result7"></div>
+		<button id="boton" type="button">¿Todos han realizado más de 3000 ventas?</button>
+		<div id="resultado"></div>
 </body>
 </html>
