@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+	<style type="text/css">
+		.oldStyle {
+			background-color: #7c7c7c;
+			color: #ffbf00;
+			border: 1px solid #ffbf00;
+			padding: 20px;
+		}
+		.newStyle {
+			background-color: #491f00;
+			color: #36d900;
+			border: 1px solid #black;
+			padding: 10px;
+		}
+	</style>
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+		require(["dojo/dom-class", "dojo/dom", "dojo/on", "dojo/domReady!"],
+		function(domClass, dom, on){
+		  on(dom.byId("boton"), "click", function(){
+		    domClass.replace("example", "newStyle", "oldStyle");
+				dom.byId("example").innerHTML = "Ya lo ha cambiado";
+		  });
+		});
+	</script>
+</head>
+<body class="claro">
+    <div id="example" class="oldStyle">Este nodo cambiará de estilo.</div>
+<button id="boton" type="button">Cambia estilo!</button>
+</body>
+</html>
