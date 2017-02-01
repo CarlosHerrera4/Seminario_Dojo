@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {parseOnLoad: true}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require(["dojo/_base/lang"], function(lang){
+			  var myObj = {
+			    foo: "bar",
+			    method: function(someArg){
+			      console.log(someArg + " " + this.foo);
+			    }
+			  };
+
+			  var func = lang.hitch(myObj, "method", "baz");
+
+			  func();
+			});
+	</script>
+</head>
+<body class="claro">
+
+</body>
+</html>
