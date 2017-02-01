@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../../_static/js/dojo/../dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require(["dojo/_base/lang","dojo/dom", "dojo/dom-construct", "dojo/on", "dojo/domReady!"],
+				function(lang, dom, domConst, on){
+
+					on(dom.byId("start"), "click", function(){
+						// clone a string
+						var nom = "John";
+						var newstring = lang.clone(nom);
+						domConst.create("li", {innerHTML: newstring}, "clone-items");
+						// clone an object
+					  var obj = { a:"b", c:"d" };
+					  var thing = lang.clone(obj);
+						domConst.create("li", {innerHTML: thing}, "clone-items");
+					  // clone an array
+						var arr = ["a","b","c"];
+					  var newarray = lang.clone(arr);
+						domConst.create("li", {innerHTML: newarray}, "clone-items");
+					});
+			});
+	</script>
+</head>
+
+<body class="claro">
+    <button id="start" type="button">Clonar elementos</button>
+		<br/>
+		<div style="width: 300px; float: left;">
+		  Elementos clonados<br />
+		  (aparecerá un string, un objeto y un array)
+		  <ul id="clone-items">
+
+		  </ul>
+		</div>
+
+</body>
+
+</html>
