@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../../_static/js/dojo/../dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require(["dojo/_base/lang","dojo/dom", "dojo/dom-construct", "dojo/on", "dojo/domReady!"],
+				function(lang, dom, domConst, on){
+
+					on(dom.byId("start"), "click", function(){
+						// mixin two objects
+					  var obj = { a:"b", c:"d" };
+						var obj_2 = { e:"f", g:"h"};
+					  var thing = lang.mixin(obj, obj_2);
+						console.log(thing);
+						domConst.create("li", {innerHTML: thing}, "clone-items");
+					});
+			});
+	</script>
+</head>
+
+<body class="claro">
+    <button id="start" type="button">Unir elementos</button>
+		<br/>
+		<div style="width: 300px; float: left;">
+		  Elementos unidos<br />
+		  (pulse F12 y vea el resultado en la consola)
+		  <ul id="clone-items">
+
+		  </ul>
+		</div>
+
+</body>
+
+</html>
