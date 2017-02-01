@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../../_static/js/dojo/../dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require(["dojo/_base/array", "dojo/dom-construct", "dojo/dom", "dojo/on", "dojo/domReady!"],
+			function(array, domConst, dom, on){
+
+			  var cars = ["Citroën", "Volkswagen", "Ford", "Peugeot"];
+
+			  on(dom.byId("muestraCoches"), "click", function(){
+					// array.forEach(Array_test, callback, thisObject?)
+			    array.forEach(cars, function(item, i){
+			      domConst.create("li", {innerHTML: i+1+". "+item}, "forEach-items");
+			    });
+			  });
+			});
+	</script>
+</head>
+
+<body class="claro">
+    <button id="muestraCoches" type="button">Marcas de coches</button>
+		<ul id="forEach-items"></ul>
+</body>
+
+</html>
