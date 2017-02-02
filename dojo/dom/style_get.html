@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+	<style type="text/css">
+		.example{
+		  margin: 1em;
+		  text-align: center;
+		  padding: 1em;
+		  border: 2px solid black;
+		  color: white;
+		  background-color: blue;
+		  width: 200px;
+		  height: 100px;
+		}
+	</style>
+	<script>dojoConfig = {async: true, parseOnLoad: false}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require(["dojo/dom-style", "dojo/dom", "dojo/on", "dojo/domReady!"],
+			function(style, dom, on){
+			  on(dom.byId("command"), "click", function(){
+			    var backgroundColor = style.get("example", "backgroundColor");
+					var height = style.get("example", "height");
+			    dom.byId("output").innerHTML = "example.backgroundColor: " + backgroundColor + "  &  example.height:  " + height;
+			  });
+			});
+	</script>
+</head>
+<body class="claro">
+    <button id="command" type="button">Muéstrame el estilo</button>
+<div class="example" id="example">Nodo con class="example"</div>
+<p><strong>Estilo:</strong></p>
+<div id="output"></div>
+</body>
+</html>
