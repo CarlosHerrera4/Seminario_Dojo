@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {async: true, parseOnLoad: true}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+		require([
+			"dijit/form/CurrencyTextBox",
+			"dijit/form/DateTextBox",
+			"dijit/form/NumberSpinner",
+			"dijit/form/NumberTextBox",
+			"dijit/form/TextBox",
+			"dijit/form/TimeTextBox",
+			"dijit/form/ValidationTextBox",
+			"dojo/parser",
+			"dojo/domReady!"]);
+	</script>
+</head>
+<body class="claro">
+	<!-- Create CurrencyTextBox -->
+    <label for="income1">CurrencyTextBox: </label>
+		<input type="text" name="income1" id="income1" value="54775.53" required="true"
+		    data-dojo-type="dijit/form/CurrencyTextBox"
+		    data-dojo-props="constraints:{fractional:true},
+		    currency:'USD',
+		    invalidMessage:'Invalid amount. Cents are required.'" />
+		<!-- End CurrencyTextBox -->
+		<br><br>
+
+		<!-- Create DateTextBox -->
+		<label for="date1">DateTextBox:</label>
+		<input type="text" name="date1" id="date1" value="2017-02-02"
+		    data-dojo-type="dijit/form/DateTextBox"
+		    required="true" />
+		<!-- End DateTextBox -->
+		<br><br>
+
+		<!-- Create NumberSpinner -->
+		<label for="numberspin"> NumberSpinner: </label>
+		<input data-dojo-type="dijit/form/NumberSpinner"
+	    id="integerspinner2"
+	    value="1000"
+	    data-dojo-props="smallDelta:10, constraints:{min:9,max:1550,places:0}"
+	    name="someNumber"
+    />
+		<!-- End NumberSpinner -->
+		<br><br>
+
+		<!-- Create NumberTextBox -->
+		<label for="q05">NumberTextBox. Ingrese un integer entre -20000 to +20000:</label>
+		<input id="q05" type="text"
+		    data-dojo-type="dijit/form/NumberTextBox"
+		    name= "elevation"
+		    required="true"
+		    value="3000"
+		    data-dojo-props="constraints:{min:-20000,max:20000,places:0},
+		    invalidMessage:'Por favor, ingrese un valor número.',
+		    rangeMessage:'Número inválido.'" />
+		<!-- End NumberTextBox -->
+		<br><br>
+
+		<!-- Create TextBox -->
+		<label for="firstname">Textbox: </label>
+		<input type="text" name="firstname" value="testing testing"
+		    data-dojo-type="dijit/form/TextBox"
+		    data-dojo-props="trim:true, propercase:true" id="firstname" />
+		<!-- End TextBox -->
+		<br><br>
+
+		<!-- Create TimeTextBox -->
+		<label for="time1">Drop down Time box:</label>
+		<input type="text" name="date1" id="time1" value="T15:00:00"
+		    data-dojo-type="dijit/form/TimeTextBox"
+		    onChange="require(['dojo/dom'], function(dom){dom.byId('val').value=dom.byId('time1').value.toString().replace(/.*1970\s(\S+).*/,'T$1')})"
+		    required="true" />
+		<br>string value: <input id="val" value="value not changed" readonly="readonly" disabled="disabled" />
+		<!-- End TimeTextBox -->
+		<br><br>
+
+		<!-- Create ValidationTextBox -->
+		<label for="phone">Número de teléfono (sin espacios):</label>
+		<input type="text" name="phone" id="phone" value="someTestString" required="true"
+		    data-dojo-type="dijit/form/ValidationTextBox"
+		    data-dojo-props="regExp:'[\\w]+', invalidMessage:'Invalid Non-Space Text.'" />
+		<!-- End ValidationTextBox -->
+		<br><br>
+
+
+
+
+</body>
+</html>
