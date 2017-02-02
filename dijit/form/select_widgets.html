@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {async: true, parseOnLoad: true}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require([
+				//"dojo/parser",
+				"dijit/form/Select",
+				"dijit/form/ComboBox",
+				"dijit/form/MultiSelect",
+				"dijit/form/FilteringSelect"
+			]);
+	</script>
+</head>
+
+<body class="claro">
+	<!-- Create Select -->
+		<label for="">Select: </label>
+    <select name="select1" data-dojo-type="dijit/form/Select">
+		    <option value="TN">Tennessee</option>
+		    <option value="VA" selected="selected">Virginia</option>
+		    <option value="WA">Washington</option>
+		    <option value="FL">Florida</option>
+		    <option value="CA">California</option>
+		</select>
+		<!-- End Select -->
+		<br><br>
+
+		<!-- Create ComboBox -->
+		<label for="">ComboBox: </label>
+		<select data-dojo-type="dijit/form/ComboBox" id="fruit" name="fruit">
+		    <option>Apples</option>
+		    <option selected>Oranges</option>
+		    <option>Pears</option>
+		</select>
+		<!-- End ComboBox -->
+		<br><br>
+
+		<!-- Create MultiSelect -->
+		<label for="">MultiSelect: </label>
+		<select data-dojo-type="dijit/form/MultiSelect" id="fruit" name="fruit" size="4">
+		    <option value="AP">Apples</option>
+		    <option value="OR">Oranges</option>
+		    <option value="PE" selected="selected">Pears</option>
+		</select>
+		<!-- End MultiSelect -->
+		<br><br>
+
+		<!-- Create FilteringSelect -->
+		<label for="">FilteringSelect: </label>
+		<select data-dojo-type="dijit/form/FilteringSelect" id="fruit" name="fruit">
+		    <option value="AP">Apples</option>
+		    <option value="OR" selected>Oranges</option>
+		    <option value="PE" >Pears</option>
+		</select>
+		<!-- End FilteringSelect -->
+
+
+</body>
+</html>
