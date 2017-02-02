@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html >
+<head>
+
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+
+	<script>dojoConfig = {parseOnLoad: true}</script>
+	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+
+	<script>
+			require([
+				"dijit/form/Button",
+
+				"dijit/form/DropDownButton",
+				"dijit/DropDownMenu",
+				"dijit/MenuItem",
+				"dijit/form/ComboButton",
+				"dijit/form/ToggleButton",
+			 	"dojo/dom",
+				"dojo/domReady!"], function(Button, DropDownButton, DropDownMenu, MenuItem,ComboButton,ToggleButton, dom){
+			    // Create a Button
+			    var myButton = new Button({
+			        label: "Button",
+			        onClick: function(){
+			            // Do something:
+			            dom.byId("result1").innerHTML += "dijit/form/Button ";
+			        }
+			    }, "progButtonNode").startup();
+
+
+
+					//
+			});
+	</script>
+</head>
+<body class="claro">
+    <button id="progButtonNode" type="button"></button>
+		<div id="result1"></div>
+		<br>
+		<!-- Create DropDownMenu-->
+		<div data-dojo-type="dijit/form/DropDownButton">
+		  <span>DropDwonButton</span>
+		  <div data-dojo-type="dijit/TooltipDialog">
+		     <label for="name">Name:</label> <input data-dojo-type="dijit/form/TextBox" id="name" name="name"><br>
+		     <label for="hobby">Hobby:</label> <input data-dojo-type="dijit/form/TextBox" id="hobby" name="hobby"><br>
+		     <button data-dojo-type="dijit/form/Button" type="submit">Save</button>
+		  </div>
+		</div>
+		<!-- End DropDwnMenu -->
+		<br><br>
+
+		<!-- Create ComboButton -->
+		<div data-dojo-type="dijit/form/ComboButton">
+		    <span>ComboButton</span>
+		    <div data-dojo-type="dijit/DropDownMenu">
+		        <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){console.log('hi!')}">Yahoo</div>
+		        <div data-dojo-type="dijit/MenuItem" data-dojo-props="onClick:function(){console.log('ho!')}">Google</div>
+		    </div>
+		</div>
+		<!-- End ComboButton -->
+		<br><br>
+
+		<!-- ToggleButton -->
+		<button data-dojo-type="dijit/form/ToggleButton" data-dojo-props="iconClass:'dijitCheckBoxIcon', checked: true">
+		    Toggle me
+		</button>
+		<!-- End TogleButton -->
+		<br><br>
+
+
+
+</body>
+</html>
