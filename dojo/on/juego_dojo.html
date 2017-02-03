@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"
+    ></script>
+    <!-- <script>
+      var dojoConfig = {
+        async: true
+      }
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jo/1.10.4/dojo/dojo.js"></script> -->
+
+    <script>
+      require([
+        'dojo/dom',
+        "dojo/on",
+        'dojo/fx',
+        "dojo/_base/connect",
+        'dojo/domReady!'
+      ], function (dom, on, fx, connect) {
+
+        var el = dom.byId('contenedor');
+        el.innerHTML = 'Clic aquí!';
+
+        dojo.connect(el, "onmouseover", function(evt){
+          fx.slideTo({
+              node: el,
+              top: Math.floor((Math.random() * 1000) + 1),
+              left: Math.floor((Math.random() * 1000) + 1)
+          }).play();
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="contenedor"></div>
+  </body>
+
+</html>
