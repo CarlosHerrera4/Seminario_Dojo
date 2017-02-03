@@ -1,0 +1,2 @@
+Ha recuperado el contenido de example_text
+mediante request.get y lo muestra

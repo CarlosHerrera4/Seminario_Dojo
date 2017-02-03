@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Ejemplo: dojo/request</title>
+		<style media="screen">
+			pre {
+				height:25em;
+				width:450px;
+				overflow:auto;
+			}
+
+			label {
+				font-weight:bolder;
+				display:block;
+			}
+
+			#resultDiv {
+				margin:15px 0;
+				padding:5px;
+				width:25em;
+			}
+
+			.error {
+				color:#DF0101;
+				font-weight:bolder;
+			}
+
+			.success {
+				color:#186421;
+			}
+
+			.ready {
+				color:#062093;
+			}
+
+			.hint {
+				font-weight:bolder;
+				background-color:#ff0;
+			}
+
+			dt {
+				font-weight:bolder;
+			}
+
+			.json {
+				overflow:scroll;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Ejemplo: dojo/request</h1>
+		<p>Haz clic para comprobar cómo trabaja dojo/request/xhr.</p>
+		<div>
+			<button id="textButton">Recupera el texto</button>
+		</div>
+		<br /><br />
+		<div id="resultDiv">
+		</div>
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="isDebug: 1, async: 1, parseOnLoad: 1"></script>
+		<script>
+			require(["dojo/dom", "dojo/on", "dojo/request", "dojo/domReady!"],
+				function(dom, on, request){
+					// Results will be displayed in resultDiv
+					var resultDiv = dom.byId("resultDiv");
+
+					// Attach the onclick event handler to the textButton
+					on(dom.byId('textButton'), "click", function(evt){
+						// Request the text file
+						request.get("/Seminario_Dojo/dojo/request/example_text.txt").then(
+							function(response){
+								// Display the text file content
+								resultDiv.innerHTML = "<pre>" + response + "</pre>";
+							},
+							function(error){
+								// Display the error returned
+								resultDiv.innerHTML = "<div class=\"error\">" + error + "<div>";
+							}
+						);
+					});
+				}
+			);
+		</script>
+	</body>
+</html>
