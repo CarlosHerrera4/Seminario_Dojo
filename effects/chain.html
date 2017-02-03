@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Ejemplo: fx.chain</title>
+	<style media="screen">
+		button {
+			-webkit-transition: background-color 0.2s linear;
+			border-radius:4px;
+			-moz-border-radius: 4px 4px 4px 4px;
+			-moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+			background-color: #E4F2FF;
+			background-position: center top;
+			background-repeat: repeat-x;
+			border: 1px solid #769DC0;
+			padding: 2px 8px 4px;
+			font-size:1em;
+			}
+		button:hover {
+			background-color: #AFD9FF;
+			color: #000000;
+		}
+		.red-block {
+			width: 200px;
+			height: 300px;
+			background-color: red;
+			margin:2em;
+			text-align:center;
+		}
+		.wipe {
+			font-size: 28px;
+			height: auto;
+			width: auto;
+		}
+		.slide {
+			position: absolute;
+			left: 0;
+			top: 100px;
+		}
+		.chain {
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<h1>Ejemplo: fx.chain</h1>
+	<label for="">Aquí tenemos 3 animaciones encadenadas: fadeIn, slideTo y fadeOut</label>
+	<br><br>
+	<button id="slideAwayButton">Mueve el bloque</button>
+	<button id="slideBackButton">Muévelo a la posición inicial</button>
+
+	<div id="slideTarget" class="red-block slide chain">
+		Bloque rojo
+	</div>
+	<!-- load dojo and provide config via data attribute -->
+	<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="async: true, isDebug: true"></script>
+	<script>
+		require([
+			"dojo/_base/fx",
+			"dojo/fx",
+			"dojo/on",
+			"dojo/dom",
+			"dojo/domReady!"
+		], function (baseFx, fx, on, dom) {
+
+			var slideAwayButton = dom.byId("slideAwayButton"),
+					slideBackButton = dom.byId("slideBackButton"),
+					slideTarget = dom.byId("slideTarget");
+
+			// En fx.chain introducimos como parámetro un array
+			// con las animaciones que queramos
+			on(slideAwayButton, "click", function(evt){
+				fx.chain([
+					baseFx.fadeIn({ node: slideTarget }),
+					fx.slideTo({ node: slideTarget, left: "200", top: "200" }),
+					baseFx.fadeOut({ node: slideTarget })
+				]).play();
+			});
+			on(slideBackButton, "click", function(evt){
+				fx.chain([
+					baseFx.fadeIn({ node: slideTarget }),
+					fx.slideTo({ node: slideTarget, left: "0", top: "100" }),
+					baseFx.fadeOut({ node: slideTarget })
+				]).play();
+			});
+
+		});
+	</script>
+</body>
+</html>
