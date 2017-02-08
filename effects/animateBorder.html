@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Demo: Border Animation</title>
+		<title>Ejemplo: Animación de Bordes</title>
 		<style>
 
 			.box {
@@ -40,12 +40,12 @@
 		</style>
 	</head>
 	<body>
-		<h3>Demo: Border Animation</h3>
-		<button id="startButton">Grow Borders</button>
-		<button id="reverseButton">Shrink Borders</button>
+		<h3>Ejemplo: Animación de bordes</h3>
+		<button id="startButton">Aumenta bordes</button>
+		<button id="reverseButton">Encoge bordes</button>
 
-		<div id="anim8target" class="box" style="border-style:outset">
-			<div class="innerBox">A box</div>
+		<div id="borderbox" class="box" style="border-style:outset">
+			<div class="innerBox">Caja</div>
 		</div>
 
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="isDebug: 1, async: 1, parseOnLoad: 1"></script>
@@ -53,18 +53,18 @@
 			require(["dojo/_base/fx", "dojo/on", "dojo/dom", "dojo/domReady!"], function(baseFx, on, dom) {
 				var startButton = dom.byId("startButton"),
 					reverseButton = dom.byId("reverseButton"),
-					anim8target = dom.byId("anim8target");
+					borderbox = dom.byId("borderbox");
 
 					// Set up a couple of click handlers to run our animations
 					on(startButton, "click", function(evt){
 						baseFx.animateProperty({
-							node: anim8target,
+							node: borderbox,
 							properties: { borderWidth: 100 }
 						}).play();
 					});
 					on(reverseButton, "click", function(evt){
 						baseFx.animateProperty({
-							node: anim8target,
+							node: borderbox,
 							properties: { borderWidth: 1 }
 						}).play();
 					});
