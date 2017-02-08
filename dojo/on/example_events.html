@@ -13,9 +13,9 @@
         "dojo/domReady!"
       ],function(dom, on, fx, connect){
         var el = dom.byId("contenedor");
-        el.innerHTML = "Haz clic!"
+        el.innerHTML = "Haz clic!";
 
-        dojo.connect(el, "onclick", function(evt){
+        on(el, "click", function(evt){
           fx.slideTo({
             node: el,
             top: 100,
