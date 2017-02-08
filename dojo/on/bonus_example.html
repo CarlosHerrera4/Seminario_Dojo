@@ -13,9 +13,9 @@
 
          var n = domConstruct.create("ul", { innerHTML:"Hola Mundo!"}, "contenedor");
 
-         dojo.connect(n, "onclick", function(){
+         on(n, "click", function(){
            var a = domConstruct.create("ul", { innerHTML:"Hola de nuevo!!!"}, "contenedor");
-           dojo.connect(a, "onclick", function(){
+           on(a, "click", function(){
              var b = domConstruct.create("ul", { innerHTML: "Ta luego!!"}, "contenedor");
            });
          });
