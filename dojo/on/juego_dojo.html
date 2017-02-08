@@ -15,14 +15,13 @@
         'dojo/dom',
         "dojo/on",
         'dojo/fx',
-        "dojo/_base/connect",
         'dojo/domReady!'
-      ], function (dom, on, fx, connect) {
+      ], function (dom, on, fx) {
 
         var el = dom.byId('contenedor');
         el.innerHTML = 'Clic aquí! (si puedes xD)';
 
-        dojo.connect(el, "onmouseover", function(evt){
+        on(el, "mouseover", function(evt){
           fx.slideTo({
               node: el,
               top: Math.floor((Math.random() * 1000) + 1),
