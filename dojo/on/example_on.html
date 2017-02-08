@@ -64,15 +64,8 @@
 		require(["dojo/on", "dojo/dom", "dojo/dom-style", "dojo/_base/lang", "dojo/mouse", "dojo/domReady!"],
 				function(on, dom, domStyle, lang, mouse) {
 					var myButton = dom.byId("myButton"),
-							myDiv = dom.byId("myDiv"),
-							myScopedButton1 = dom.byId("myScopedButton1"),
-							myScopedButton2 = dom.byId("myScopedButton2"),
-							myObject = {
-								id: "myObject",
-								onClick: function(evt){
-									alert("The scope of this handler is " + this.id);
-								}
-							};
+							myDiv = dom.byId("myDiv");
+
 
 					on(myButton, "click", function(evt){
 						domStyle.set(myDiv, "backgroundColor", "blue");
@@ -82,14 +75,6 @@
 					});
 					on(myDiv, mouse.leave, function(evt){
 						domStyle.set(myDiv, "backgroundColor", "");
-					});
-
-					var handle = on(myButton, "click", function(evt){
-						// Remove this event using the handle
-						handle.remove();
-
-						// Do other stuff here that you only want to happen one time
-						alert("This alert will only happen one time.");
 					});
 
 
