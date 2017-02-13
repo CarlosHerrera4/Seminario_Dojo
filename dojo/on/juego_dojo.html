@@ -19,7 +19,7 @@
       ], function (dom, on, fx) {
 
         var el = dom.byId('contenedor');
-        el.innerHTML = 'Clic aquí! (si puedes xD)';
+        //el.innerHTML = 'Clic aquí! (si puedes xD)';
 
         on(el, "mouseover", function(evt){
           fx.slideTo({
@@ -29,11 +29,14 @@
           }).play();
         });
       });
+      
     </script>
   </head>
 
   <body>
-    <div id="contenedor"></div>
+    <div id="contenedor">
+      <img src="https://pbs.twimg.com/profile_images/778292910395629572/4pHLcIAG.jpg" alt="">
+    </div>
   </body>
 
 </html>
