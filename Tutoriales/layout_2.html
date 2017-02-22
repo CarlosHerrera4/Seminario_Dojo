@@ -11,8 +11,13 @@
 			    overflow:hidden;
 			}
 
-			no_ventas {
+			.no_productivo {
 				background-color: red;
+				/*color: red;*/
+			}
+
+			.si_productivo {
+				background-color: green;
 			}
 
 			#borderContainerTwo {
@@ -21,10 +26,12 @@
 			}
 	</style>
 	<script>dojoConfig = {parseOnLoad: true}</script>
-	<script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script>
+	<!-- <script src='//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js'></script> -->
+	<script src="https://js.arcgis.com/3.19/"></script>
 
 	<script>
 		require([
+			"esri/map",
 			"dojo/dom",
 			"dojo/on",
 			"dojo/_base/fx",
@@ -35,58 +42,61 @@
 			"dijit/layout/TabContainer",
 			"dijit/layout/AccordionContainer",
 			"dijit/layout/AccordionPane"],
-		function(dom, on, fx, domClass) {
+		function(Map, dom, on, fx, domClass) {
 
 			var datos = [];
 
 			var boton = dom.byId("envia_datos");
 			on(boton, "click", function(){
 				var name = dom.byId("nombre").value;
-				var last_name = dom.byId("apellido").value;
+				var direccion = dom.byId("direccion").value;
 				var sales = dom.byId("ventas").value;
 
 				var nuevo_cliente = {};
 				nuevo_cliente.nombre = name;
-				nuevo_cliente.apellido = last_name;
+				nuevo_cliente.direccion = direccion;
 				nuevo_cliente.ventas = sales;
 
 				datos.push(nuevo_cliente);
 
 				if (sales>2000) {
 					var n_elemento = document.createElement("LI");
-					var text2 = dom.byId("1_pestaña");
-
-					var textnode = document.createTextNode(name);
+					var text2 = dom.byId("si_products");
+					var textnode = document.createTextNode(name + " - " + sales +"€");
 					n_elemento.appendChild(textnode);
 					text2.appendChild(n_elemento);
+					domClass.add("si_products", "si_productivo");
 				}
 				else {
 					var n_elemento = document.createElement("LI");
-					n_elemento.setAttribute("id","Div1");
-					domClass.add("2_pestaña", "no_ventas");
-					var text2 = dom.byId("2_pestaña");
-
-					var textnode = document.createTextNode(name);
+					var text2 = dom.byId("no_products");
+					var textnode = document.createTextNode(name + " - " + sales +"€");
 					n_elemento.appendChild(textnode);
 					text2.appendChild(n_elemento);
+					domClass.add("no_products", "no_productivo");
+
 				};
 
 			});
 				//fx.fadeIn({node: text2}).play();
-
+			var map = new Map("map", {
+		    center: [-118, 34.5],
+		    zoom: 8,
+		    basemap: "topo"
+		  });
 		});
 	</script>
 </head>
 <body class="claro">
     <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:true, liveSplitters:false" id="borderContainerTwo">
     <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top', splitter:false">
-        Este es un ContentPane (region:top)
+			CONTROL DE VENTAS
     </div>
     <div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-props="minSize:20, region:'leading', splitter:true" style="width: 300px;" id="leftAccordion">
         <div data-dojo-type="dijit/layout/AccordionPane" title="Primera pestaña del AccordionContainer" selected="true">
 					<h1>FORMULARIO</h1>
 					<h4>Nombre: <input type="text" id="nombre"></h4>
-					<h4>Apellido: <input type="text" id="apellido"></h4>
+					<h4>Dirección: <input type="text" id="direccion"></h4>
 					<h4>Ventas: <input type="number" id="ventas"></h4>
 					<br>
 					<input type="button" value="Enviar datos" id="envia_datos">
@@ -100,18 +110,19 @@
         </div>
     </div><!-- end AccordionContainer -->
     <div data-dojo-type="dijit/layout/TabContainer" data-dojo-props="region:'center', tabStrip:true">
-        <div data-dojo-type="dijit/layout/ContentPane" title="Primera pestaña del TabContainer" selected="true" id="1_pestaña">
-
+        <div data-dojo-type="dijit/layout/ContentPane" title="Centros productivos" selected="true" id="1_pestaña">
+					<div id="si_products"></div>
         </div>
-        <div data-dojo-type="dijit/layout/ContentPane" title="Segunda pestaña del TabContainer" id="2_pestaña">
-        Lorem ipsum and all around - second...
+        <div data-dojo-type="dijit/layout/ContentPane" title="Centros no productivos" id="2_pestaña">
+					<div id="no_products"></div>
         </div>
-        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="closable:true" title="Tercera pestaña del TabContainer">
-        	<p>Esta pestaña ContentPane además tiene la propiedad:</p>
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="closable:true" title="Gráfico">
+        	<!-- <p>Esta pestaña ContentPane además tiene la propiedad:</p>
 					<ul>
 						<li>data-dojo-props = "closable:true"</li>
 					</ul>
-					<p>que hace se pueda cerrar</p>
+					<p>que hace se pueda cerrar</p> -->
+					<div id="map"></div>
         </div>
     </div><!-- end TabContainer -->
 </div><!-- end BorderContainer -->
