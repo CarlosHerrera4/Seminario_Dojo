@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+			<link rel="stylesheet" href="CSS/reset.css">
+			 <title>CV Carlos Herrera Expósito</title>
+			<style type="text/css">
+					html, body {
+					    width: 100%;
+					    height: 100%;
+					    margin: 0;
+					    overflow:hidden;
+					}
+					#borderContainerTwo {
+					    width: 100%;
+					    height: 100%;
+					}
+			</style>
+			<script>dojoConfig = {parseOnLoad: true}</script>
+			<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+
+			<script>
+				require([
+					"dojo/parser",
+					"dijit/layout/ContentPane",
+					"dijit/layout/BorderContainer",
+					"dijit/layout/TabContainer",
+					"dijit/layout/AccordionContainer",
+					"dijit/layout/AccordionPane"]);
+			</script>
+	</head>
+	<body class="claro">
+	    <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:true, liveSplitters:false" id="borderContainerTwo">
+	    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top', splitter:false" class= "fondo">
+	        Carlos Herrera Expósito
+					<br>
+					<img id="FotoCarnet" src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAh_AAAAJDRkZDAxYTUxLTgxMTctNDBjNS04MGU4LWM1NmZhN2M5Y2U5Yw.jpg" alt=""><br><br>
+	    </div>
+	    <div data-dojo-type="dijit/layout/AccordionContainer" data-dojo-props="minSize:20, region:'leading', splitter:true" style="width: 100%;" id="leftAccordion" >
+	        <div data-dojo-type="dijit/layout/AccordionPane" title="Experiencia profesional">
+						<div>
+							<div class= "fondo">
+						<table>
+				<tr>
+	        <td><strong class="negrita">Empresa/organización</strong></td>
+	        <td><strong class="negrita">Puesto</strong></td>
+	        <td><strong class="negrita">Localidad</strong></td>
+	        <td><strong class="negrita">Tiempo</strong></td>
+	    </tr>
+	    <tr>
+	        <td>Esri España</td>
+	        <td>GIS Developer en Departamento de Formación</td>
+	        <td>Madrid</td>
+	        <td>3 meses</td>
+	    </tr>
+	    <tr>
+          <td>Esri España</td>
+          <td>GIS Trainer</td>
+          <td>Madrid</td>
+          <td>Nov 2016 - Actualmente</td>
+      </tr>
+				</table>
+	</div>
+	</div>
+	</div>
+
+	        <div data-dojo-type="dijit/layout/AccordionPane" title="Habilidades">
+						<ul>
+							<li><strong class="negrita">SIG: </strong>ArcGIS, GVsig, QGIS</li>
+						</ul>
+
+	        </div>
+	        <div data-dojo-type="dijit/layout/AccordionPane" title="Eduacación">
+
+						<table class="table">
+								<tr>
+										<td><strong class="negrita">Título</strong></td>
+										<td><strong class="negrita">Entidad</strong></td>
+										<td><strong class="negrita">Promoción</strong></td>
+								</tr>
+								<tr>
+										<td>Máster GIS</td>
+										<td>ESRI España</td>
+										<td>2015 - 2016</td>
+								</tr>
+								<tr>
+										<td>Ingeniería Técnica en Topografía</td>
+										<td>Universidad de Jaén</td>
+										<td>2007 - 2014</td>
+								</tr>
+
+						</table>
+	        </div>
+	        <div data-dojo-type="dijit/layout/AccordionPane" title="Redes sociales">
+						<p>
+							También podéis encontrarme en distintas redes sociales
+						</p>
+						<br>
+
+
+									<a href="https://www.linkedin.com/in/carlos-herrera-exp%C3%B3sito-07b6a893/"><img class="logotipo" src= "http://www.mad-school.co.il/wp-content/uploads/2012/09/linkedin-logo.jpg" alt=""></a><br>
+									<a href="https://twitter.com/MundoGISter"><img class="logotipo" src="http://globalmediait-cl.com/wp-content/uploads/2016/01/twitter.jpg?w=640" alt= ""></a><br>
+
+	        </div>
+	    </div><!-- end AccordionContainer -->
+
+	</div><!-- end BorderContainer -->
+	</body>
+</html>
