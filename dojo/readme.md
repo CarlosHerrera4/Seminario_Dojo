@@ -3,21 +3,21 @@
 
 * _base
  * array  
-   * every
-   * filter
-   * forEach
+   * every [Ejemplo]()
+   * filter [Ejemplo]()
+   * forEach [Ejemplo]()
  * lang
-   *  clone
-   * hitch
-   * mixin
+   *  clone [Ejemplo]()
+   * hitch [Ejemplo]()
+   * mixin [Ejemplo]()
 * dom
-  * classAdd
-  * classContains
-  * classRemove
-  * classReplace
-  * classToggle
-  * styleGet
-  * styleGetComputedStyle
-  * styleSet
-* on
-* request
+  * classAdd [Ejemplo]()
+  * classContains [Ejemplo]()
+  * classRemove [Ejemplo]()
+  * classReplace [Ejemplo]()
+  * classToggle [Ejemplo]()
+  * styleGet [Ejemplo]()
+  * styleGetComputedStyle [Ejemplo]()
+  * styleSet [Ejemplo]()
+* on [Ejemplo]()
+* request [Ejemplo]()
