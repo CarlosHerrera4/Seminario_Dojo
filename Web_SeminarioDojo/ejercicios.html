@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Elements - Projection by TEMPLATED</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo"><strong>Seminario Dojo</strong></a>
+
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Ejercicios</h2>
+					</header>
+
+					<div class="select-wrapper">
+						<select name="demo-category" id="demo-category" onchange="cambiaEjercicio()">
+							<option value="">- Elige ejercicio -</option>
+							<option value="https://embed.plnkr.co/Jxrh19tC3GMLRKwVCpCU/">AddClass</option>
+							<option value="https://embed.plnkr.co/GRk5SF20peDTHO3x7mO3/">RemoveClass</option>
+							<option value="https://embed.plnkr.co/qx1SJQvAmVC4HHACCVVV/">ClassReplace</option>
+							<option value="https://embed.plnkr.co/hqCJOfTb6oMQyNZyahPo/">setStyle</option>
+							<option value="https://embed.plnkr.co/9mywkXaWofS0uuD3cpkE/">Forms</option>
+							<option value="https://embed.plnkr.co/wXd1hQW1DoI4ke1CBI7A/">Fade</option>
+							<option value="https://embed.plnkr.co/7Ngux2HjT2Vs6yjNDOt2/">Chain</option>
+							<option value="https://embed.plnkr.co/bt8oZwNtYuxmNH26ow03/">Wipe</option>
+							<option value="https://embed.plnkr.co/QNwhHnoHDLHGNf7ZsH26/">AnimateBorder</option>
+						</select>
+					</div>
+					<br><br><br>
+
+				</div>
+
+				<div class="box" style="width:100%; height:900px;">
+					<iframe id="e_plunker" src="" width="100%" height="100%"></iframe><br><br>
+				</div>
+
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="flex ">
+
+						<div>
+							<a href="">
+								<img src="https://cdn1.iconfinder.com/data/icons/business-productivity-set-2/100/demo_slideshow_blackboard_webinar_list_powerpoint-64.png" alt="">
+								<h3>Slides</h3>
+							</a>
+						</div>
+
+						<div>
+							<a href="https://mundogister.gitbooks.io/seminario_dojo/">
+								<img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/book-64.png" alt="">
+								<h3>Book</h3>
+							</a>
+						</div>
+
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<script type="text/javascript">
+				function cambiaEjercicio() {
+					var e = document.getElementById("demo-category").value;
+					var a = document.getElementById("e_plunker");
+					a.src = e;
+				}
+			</script>
+
+	</body>
+</html>
