@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
+    <title>Simple Map</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.19/esri/css/esri.css">
+    <style>
+      html, body, #map {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    <script src="https://js.arcgis.com/3.19/"></script>
+    <script>
+      var map;
+      require([
+        "esri/map",
+        "esri/geometry/Point",
+        "esri/graphic",
+        "esri/symbols/SimpleMarkerSymbol",
+        "esri/Color",
+        "dojo/on",
+        "dojo/domReady!"],
+         function(Map, Point, Graphic,SimpleMarkerSymbol, Color,on) {
+          map = new Map("map",{
+            basemap: "streets",//For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
+            map:map,
+            center: [-122.45, 37.75], // longitude, latitude
+            zoom: 13
+          });
+
+          var punto = new Point ({
+            latitude: 38,
+            longitude:-122.45
+          });
+
+          var sms = new SimpleMarkerSymbol().setStyle(
+            SimpleMarkerSymbol.STYLE_SQUARE).setColor(
+            new Color([255,0,0,0.5]));
+
+          var graphic_point = new Graphic(punto, sms);
+          // graphic_point.draw();
+
+          map.on("load", function() {
+            map.graphics.add(graphic_point);
+          });
+
+          //map.graphics.add(graphic_point);
+
+
+
+          // on(map, "click", function(evt){
+          //   map.visible = false;
+          // });
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="map"></div>
+  </body>
+</html>
