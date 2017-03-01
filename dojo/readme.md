@@ -3,7 +3,7 @@
 
 * _base
  * array  
-   * every [Ejemplo]()
+   * every [Ejemplo](https://mundogister.github.io/Seminario_Dojo/dojo/_base/array/every.html)
    * filter [Ejemplo]()
    * forEach [Ejemplo]()
  * lang
