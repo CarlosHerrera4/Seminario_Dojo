@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <script>dojoConfig = {async: true, parseOnLoad: false}</script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"
+    ></script>
+
+    <script>
+      require([
+        "dojo/dom",
+        "dojo/on",
+        "dojo/domReady!"
+      ],function(dom, on, fx){
+
+        on(select, "change", function(evt){
+          // Recojo el valor del select
+          var SeleccLocal = dom.byId("select").value;
+          // Muestro el valor seleccionado del select en el id=opcion
+          var muestraopcion = dom.byId("opcion");
+          muestraopcion.innerHTML = SeleccLocal;
+        });
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <select name="select1" data-dojo-type="dijit/form/Select" id="select">
+      <option value="Artesania">Artesania</option>
+      <option value="Banco" selected="selected">Banco</option>
+      <option value="Bar">Bar</option>
+      <option value="Bodega">Bodega</option>
+    </select>
+    <div id="opcion"></div>
+  </body>
+
+</html>
