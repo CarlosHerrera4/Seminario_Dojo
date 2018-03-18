@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js" data-dojo-config="async: true"></script>
+
+    <script>
+        require([
+            "dojo/dom",
+            "dojo/on",
+            "dojo/fx",
+            "dojo/domReady!"
+        ], function (dom, on, fx) {
+            var el = dom.byId("contenedor");
+            el.innerHTML = "Haz clic! (si puedes)";
+            var state = true;
+
+            on(el, "mouseover", function(evt) {
+                fx.slideTo({
+                    node: el,
+                    top: Math.random() * 500,
+                    left: Math.random() * 500
+                }).play();
+            })
+
+            on(el, "click", function (evt) {
+                alert("Has ganado!!")
+                state = false
+            })       
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="contenedor"></div>
+</body>
+
+</html>

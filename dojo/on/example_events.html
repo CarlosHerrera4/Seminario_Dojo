@@ -1,8 +1,6 @@
 <html>
   <head>
-    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
-            data-dojo-config="async: true"
-    ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"></script>
 
     <script>
       require([
@@ -14,11 +12,11 @@
         var el = dom.byId("contenedor");
         el.innerHTML = "Haz clic!";
 
-        on(el, "click", function(evt){
+        on(el, "mouseover", function(evt){
           fx.slideTo({
             node: el,
-            top: 100,
-            left:300
+            top: Math.random()*800,
+            left:Math.random()*800
           }).play();
         });
 
@@ -27,7 +25,7 @@
   </head>
 
   <body>
-    <div id="contenedor" data-dojo-event="onclick:_onClick()"></div>
+    <div id="contenedor" ></div>
   </body>
 
 </html>
