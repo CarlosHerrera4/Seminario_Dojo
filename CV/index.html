@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style type="text/css">
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #borderContainerTwo {
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+    <script>dojoConfig = { parseOnLoad: true }</script>
+    <script src='//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js'></script>
+
+    <script>
+        require([
+            "dojo/parser",
+            "dijit/layout/ContentPane",
+            "dijit/layout/BorderContainer",
+            "dijit/layout/TabContainer",
+            "dijit/layout/AccordionContainer",
+            "dijit/layout/AccordionPane"]);
+    </script>
+</head>
+
+<body class="claro">
+    <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:true, liveSplitters:false"
+        id="borderContainerTwo">
+        <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top', splitter:false">
+            John Doe
+        </div>
+        <div data-dojo-type="dijit/layout/AccordionContainer"
+            data-dojo-props="minSize:20, region:'leading', splitter:true" style="width: 300px;" id="leftAccordion">
+            <div data-dojo-type="dijit/layout/AccordionPane" title="About me" selected="true">
+                <ul>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a,
+                        scelerisque sed, lacinia in, mi.
+                        Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
+
+                        Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula
+                        ultricies purus, sed posuere
+                        libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel
+                        tempus metus leo non est.
+                        Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus
+                        ornare, ante vitae
+                        consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi.</p>
+                </ul>
+
+            </div>
+            <div data-dojo-type="dijit/layout/AccordionPane" title="Contact">
+                <ul>
+                    <li> <a href="#."> <i class="fa fa-facebook"></i></a> </li>
+                    <li> <a href="#."> <i class="fa fa-google"></i></a> </li>
+                    <li> <a href="#."> <i class="fa fa-twitter"></i></a> </li>
+                    <li> <a href="#."> <i class="fa fa-linkedin"></i></a> </li>
+                    <li> <a href="#."> <i class="fa fa-skype"></i></a> </li>
+                </ul>
+            </div>
+        </div><
+        <div data-dojo-type="dijit/layout/TabContainer" data-dojo-props="region:'center', tabStrip:true">
+            <!-- Educatoin section -->
+            <div data-dojo-type="dijit/layout/ContentPane" title="Bio & Skills" selected="true">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.
+                    Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.
+                    
+                    Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere
+                    libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.
+                    Etiam sit amet lectus quis est congue mollis. Phasellus congue lacus eget neque. Phasellus ornare, ante vitae
+                    consectetuer consequat, purus sapien ultricies dolor, et mollis pede metus eget nisi.
+                    
+                    Praesent sodales velit quis augue. Cras suscipit, urna at aliquam rhoncus, urna quam viverra nisi, in interdum massa
+                    nibh nec erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed,
+                    lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus.
+                </p>
+
+ 
+            </div>
+            <!-- Experience section -->
+            <div data-dojo-type="dijit/layout/ContentPane" title="Experience">
+                <div class="inside-sec margin-top-30">
+                    <h5 class="tittle">Professional Experience</h5>
+                    <div class="padding-30 exp-history">
+                
+                        <div class="exp">
+                            <div class="media-left"> <span class="sun">2002 - 2008</span> </div>
+                            <div class="media-body">
+                
+                                <div class="company-logo"> <img src="images/company-logo-1.jpg" alt=""> </div>
+                                <h6>Wordpress Developer</h6>
+                                <p>Market Network</p>
+                                <p>San Francisco, California, USA</p>
+                                <p class="margin-top-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue,
+                                    suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus.
+                                    Phasellus pharetra nulla ac diam (...) <a href="#.">Read More</a> </p>
+                            </div>
+                        </div>
+                
+                        <div class="exp">
+                            <div class="media-left"> <span class="sun">2009 - 2016</span> </div>
+                            <div class="media-body">
+                
+                                <div class="company-logo"> <img src="images/company-logo-2.jpg" alt=""> </div>
+                                <h6>html5 and css3 Developer</h6>
+                                <p>Market Network</p>
+                                <p>San Francisco, California, USA</p>
+                                <p class="margin-top-10"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue,
+                                    suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus.
+                                    Phasellus pharetra nulla ac diam (...) <a href="#.">Read More</a> </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
